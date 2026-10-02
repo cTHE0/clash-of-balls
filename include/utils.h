@@ -5,6 +5,9 @@
 #include <SDL2/SDL.h>
 #include <math.h>
 #include <assert.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define PI 3.14159265358979323846
 

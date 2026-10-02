@@ -186,8 +186,8 @@ void wallCollision(Object *ball, Object *wall)
 
     // On suppose que la collision est déjà détectée
 
-    double distanceX = abs(ball->position.x - wall->position.x) - wall->rect.w / 2;
-    double distanceY = abs(ball->position.y - wall->position.y) - wall->rect.h / 2;
+    double distanceX = fabs(ball->position.x - wall->position.x) - wall->rect.w / 2;
+    double distanceY = fabs(ball->position.y - wall->position.y) - wall->rect.h / 2;
 
     if (distanceX <= 0 && distanceY > 0)
     {
@@ -221,7 +221,6 @@ void wallCollision(Object *ball, Object *wall)
 
     // Calcul de la nouvelle vitesse
 
-    double speed = norm(ball->speed);
 
     Vect newSpeed = rotateVect(ball->speed, 2 * angle);
 
@@ -313,6 +312,22 @@ void updateObject(Uint64 dt, Object *object, Object *objects, int num_boule_actu
                 object->colliding = -1;
                 other->colliding = -1;
             }
+        }
+    }
+}
+
+void drawObject(SDL_Renderer *renderer, Object *object)
+{
+    SDL_RenderCopy(renderer, object->texture, NULL, &object->rect);
+}
+
+void drawObjects(SDL_Renderer *renderer, Object *objects, int *num_objects_list)
+{
+    for (int i = 0; i < max_objects; i++)
+    {
+        if (num_objects_list[i] == 1)
+        {
+            drawObject(renderer, &objects[i]);
         }
     }
 }

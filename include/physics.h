@@ -176,4 +176,21 @@ void updateObjects(Uint64 elapsedTime, Object *objects, int *num_objects_list, V
 
 
 
+/**
+ * @brief Draw an object
+ *
+ * @param renderer Renderer
+ * @param object Object to draw
+ */
+void drawObject(SDL_Renderer *renderer, Object *object);
+
+/**
+ * @brief Draw all objects
+ *
+ * @param renderer Renderer
+ * @param objects List of objects
+ * @param num_objects_list List of the number of objects
+ */
+void drawObjects(SDL_Renderer *renderer, Object *objects, int *num_objects_list);
+
 #endif
