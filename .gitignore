@@ -42,3 +42,4 @@ Thumbs.db
 *.hex
 *.bin
 clash_of_balls
+dist/
